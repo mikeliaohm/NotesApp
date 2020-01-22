@@ -57,8 +57,16 @@ namespace NotesApp.Model
 			}
 		}
 
-		private string fileLocation;
+		private DateTime updatedTime;
 
+		public DateTime UpdatedTime
+		{
+			get { return updatedTime; }
+			set { updatedTime = value; }
+		}
+
+
+		private string fileLocation;
 
 		public string FileLocation
 		{

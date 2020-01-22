@@ -35,5 +35,29 @@ namespace NotesApp.ViewModel
 			NewNotebookCommand = new NewNotebookCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
 		}
+
+		public void CreateNote(int notebookId)
+		{
+			Note newNote = new Note()
+			{
+				NotebookId = notebookId,
+				CreatedTime = DateTime.Now,
+				UpdatedTime = DateTime.Now,
+				Title = "New note"
+			};
+
+			DatabaseHelper.Insert(newNote);
+		}
+
+		public void CreateNotebook()
+		{
+			Notebook newNotebook = new Notebook()
+			{
+				Name = "New notebook"
+
+			};
+
+			DatabaseHelper.Insert(newNotebook);
+		}
 	}
 }

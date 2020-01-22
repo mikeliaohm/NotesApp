@@ -15,7 +15,7 @@ namespace NotesApp.ViewModel.Commands
 
         public NewNotebookCommand(NotesViewModel vm)
         {
-            VM = VM;
+            VM = vm;
         }
 
         public bool CanExecute(object parameter)
@@ -25,7 +25,7 @@ namespace NotesApp.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            //TODO: 
+            VM.CreateNotebook();
         }
     }
 }
