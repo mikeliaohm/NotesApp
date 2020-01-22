@@ -73,6 +73,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\Commands\LoginCommand.cs" />
+    <Compile Include="ViewModel\Commands\NewNotebookCommand.cs" />
+    <Compile Include="ViewModel\Commands\NewNoteCommand.cs" />
     <Compile Include="ViewModel\Commands\RegisterCommand.cs" />
     <Compile Include="ViewModel\DatabaseHelper.cs" />
     <Compile Include="App.xaml.cs">
@@ -80,6 +82,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\NotesViewModel.cs" />
     <Compile Include="View\LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
