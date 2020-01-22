@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace NotesApp.Model
 {
-    class User
+    class User : INotifyPropertyChanged
     {
 		private int id;
 
 		public int Id
 		{
 			get { return id; }
-			set { id = value; }
+			set { 
+				id = value;
+				OnPropertyChanged("Id");
+			}
 		}
 
 
@@ -22,7 +26,10 @@ namespace NotesApp.Model
 		public string Name
 		{
 			get { return name; }
-			set { name = value; }
+			set { 
+				name = value;
+				OnPropertyChanged("Name");
+			}
 		}
 
 		private string lastName;
@@ -30,7 +37,10 @@ namespace NotesApp.Model
 		public string LastName
 		{
 			get { return lastName; }
-			set { lastName = value; }
+			set { 
+				lastName = value;
+				OnPropertyChanged("LastName");
+			}
 		}
 
 		private string username;
@@ -38,7 +48,10 @@ namespace NotesApp.Model
 		public string Username
 		{
 			get { return username; }
-			set { username = value; }
+			set { 
+				username = value;
+				OnPropertyChanged("Username");
+			}
 		}
 
 		private string password;
@@ -46,16 +59,29 @@ namespace NotesApp.Model
 		public string Password
 		{
 			get { return password; }
-			set { password = value; }
+			set { 
+				password = value;
+				OnPropertyChanged("Password");
+			}
 		}
 
 		private string email;
 
+
 		public string Email
 		{
 			get { return email; }
-			set { email = value; }
+			set { 
+				email = value;
+				OnPropertyChanged("Email");
+			}
 		}
 
+		public event PropertyChangedEventHandler PropertyChanged;
+
+		private void OnPropertyChanged(string propertyName)
+		{
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }
