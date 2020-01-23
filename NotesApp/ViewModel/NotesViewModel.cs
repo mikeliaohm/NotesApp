@@ -20,7 +20,7 @@ namespace NotesApp.ViewModel
 			get { return selectedNotebook; }
 			set {
 				selectedNotebook = value;
-				//TODO: get notes
+				ReadNotes();
 			}
 		}
 
@@ -41,6 +41,7 @@ namespace NotesApp.ViewModel
 			Notes = new ObservableCollection<Note>();
 			
 			ReadNotebooks();
+			ReadNotes();
 		}
 
 		public void CreateNote(int notebookId)
@@ -54,6 +55,8 @@ namespace NotesApp.ViewModel
 			};
 
 			DatabaseHelper.Insert(newNote);
+
+			ReadNotes();
 		}
 
 		public void CreateNotebook()
@@ -65,6 +68,8 @@ namespace NotesApp.ViewModel
 			};
 
 			DatabaseHelper.Insert(newNotebook);
+
+			ReadNotebooks();
 		}
 
 		public void ReadNotebooks()
@@ -86,7 +91,9 @@ namespace NotesApp.ViewModel
 		{
 			using(SQLiteConnection conn = new SQLiteConnection(DatabaseHelper.DbFile))
 			{
-				if(SelectedNotebook != null)
+				conn.CreateTable<Note>();
+
+				if (SelectedNotebook != null)
 				{
 					var notes = conn.Table<Note>().Where(n => n.NotebookId == SelectedNotebook.Id).ToList();
 
