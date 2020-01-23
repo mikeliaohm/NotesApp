@@ -10,13 +10,13 @@ namespace NotesApp.ViewModel
 {
     public class DatabaseHelper
     {
-        private static string dbFile = Path.Combine(Environment.CurrentDirectory, "notesDb.db3");
+        public static string DbFile = Path.Combine(Environment.CurrentDirectory, "notesDb.db3");
 
         public static bool Insert<T>(T item)
         {
             bool result = false;
 
-            using(SQLiteConnection conn = new SQLiteConnection(dbFile))
+            using(SQLiteConnection conn = new SQLiteConnection(DbFile))
             {
                 conn.CreateTable<T>();
                 int numberOfRows = conn.Insert(item);
@@ -33,7 +33,7 @@ namespace NotesApp.ViewModel
         {
             bool result = false;
 
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            using (SQLiteConnection conn = new SQLiteConnection(DbFile))
             {
                 conn.CreateTable<T>();
                 int numberOfRows = conn.Update(item);
@@ -50,7 +50,7 @@ namespace NotesApp.ViewModel
         {
             bool result = false;
 
-            using (SQLiteConnection conn = new SQLiteConnection(dbFile))
+            using (SQLiteConnection conn = new SQLiteConnection(DbFile))
             {
                 conn.CreateTable<T>();
                 int numberOfRows = conn.Delete(item);
