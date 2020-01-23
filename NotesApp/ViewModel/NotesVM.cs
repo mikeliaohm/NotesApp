@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace NotesApp.ViewModel
 {
-	public class NotesViewModel
+	public class NotesVM
 	{
 
 		private Notebook selectedNotebook;
@@ -32,7 +32,7 @@ namespace NotesApp.ViewModel
 
 		public NewNoteCommand NewNoteCommand { get; set; }
 
-		public NotesViewModel()
+		public NotesVM()
 		{
 			NewNotebookCommand = new NewNotebookCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
@@ -91,7 +91,7 @@ namespace NotesApp.ViewModel
 		{
 			using(SQLiteConnection conn = new SQLiteConnection(DatabaseHelper.DbFile))
 			{
-				conn.CreateTable<Note>();
+				conn.CreateTable<Note>(); // create Note table, not covered in tutorial
 
 				if (SelectedNotebook != null)
 				{

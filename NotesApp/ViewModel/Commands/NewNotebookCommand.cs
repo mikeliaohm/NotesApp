@@ -9,11 +9,11 @@ namespace NotesApp.ViewModel.Commands
 {
     public class NewNotebookCommand : ICommand
     {
-        public NotesViewModel VM { get; set; }
+        public NotesVM VM { get; set; }
 
         public event EventHandler CanExecuteChanged;
 
-        public NewNotebookCommand(NotesViewModel vm)
+        public NewNotebookCommand(NotesVM vm)
         {
             VM = vm;
         }

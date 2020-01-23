@@ -10,7 +10,7 @@
         Title="NotesWindow" Height="400" Width="600">
 
     <Window.Resources>
-        <vm:NotesViewModel x:Key="vm"/>
+        <vm:NotesVM x:Key="vm"/>
         
     </Window.Resources>
     

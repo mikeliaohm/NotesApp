@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NotesApp.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,23 +10,30 @@ namespace NotesApp.ViewModel.Commands
 {
     public class LoginCommand : ICommand
     {
-        public LoginViewModel VM { get; set; }
+        public LoginVM VM { get; set; }
 
         public event EventHandler CanExecuteChanged;
 
-        public LoginCommand(LoginViewModel vm)
+        public LoginCommand(LoginVM vm)
         {
             VM = vm;
         }
 
         public bool CanExecute(object parameter)
         {
+            var user = parameter as User;
+
+            if (string.IsNullOrEmpty(user.Username))
+                return false;
+            if (string.IsNullOrEmpty(user.Password))
+                return false;
+
             return true;
         }
 
         public void Execute(object parameter)
         {
-            //TODO:
+            VM.Login();
         }
     }
 }
