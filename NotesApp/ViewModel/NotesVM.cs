@@ -10,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace NotesApp.ViewModel
 {
+
 	public class NotesVM
 	{
+		public bool IsEditing { get; set; }
 
 		private Notebook selectedNotebook;
 
@@ -34,6 +36,8 @@ namespace NotesApp.ViewModel
 
 		public NotesVM()
 		{
+			IsEditing = false;
+
 			NewNotebookCommand = new NewNotebookCommand(this);
 			NewNoteCommand = new NewNoteCommand(this);
 
