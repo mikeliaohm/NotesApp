@@ -23,16 +23,18 @@ namespace NotesApp.ViewModel.Commands
         {
             var user = parameter as User;
 
-            if (string.IsNullOrEmpty(user.Username))
-                return false;
-            if (string.IsNullOrEmpty(user.Password))
-                return false;
-            if (string.IsNullOrEmpty(user.Email))
-                return false;
-            if (string.IsNullOrEmpty(user.LastName))
-                return false;
-            if (string.IsNullOrEmpty(user.Name))
-                return false;
+            //if (user == null)
+            //    return false;
+            //if (string.IsNullOrEmpty(user.Username))
+            //    return false;
+            //if (string.IsNullOrEmpty(user.Password))
+            //    return false;
+            //if (string.IsNullOrEmpty(user.Email))
+            //    return false;
+            //if (string.IsNullOrEmpty(user.LastName))
+            //    return false;
+            //if (string.IsNullOrEmpty(user.Name))
+            //    return false;
 
             return true;
         }
